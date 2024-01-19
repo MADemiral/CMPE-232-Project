@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="../static/js/menu.js"></script>
+
+{% if show_alert %}
+<script>
+    showAlert("{{ message }}");
+</script>
+{% endif %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/visitor.css">
+    <title>Visitor Database</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Prisoners Table</h1>
+        
+        <table class="prisoner-table">
+            <tr>
+                <th>Prisoner SSN</th>
+                <th>Name</th>
+                <th>Surname</th>
+            </tr>
+            {% for prisoner in prisoner_data %}
+                <tr>
+                    <td>{{ prisoner.p_ssn }}</td>
+                    <td>{{ prisoner.p_name }}</td>
+                    <td>{{ prisoner.p_surname }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="form_div">    
+        <h2>Add New Visitor</h2>
+        <form action="/insert_visitor" method="post" class="visitor-form">
+
+            <div class="form-group">
+                <label for="p_ssn">Prisoner SSN:</label>
+                <input type="text" name="p_ssn" minlength="9" maxlength="9" required>
+            </div>
+
+            <div class="form-group">
+                <label for="v_ssn">Visitor SSN:</label>
+                <input type="text" name="v_ssn"  minlength="9" maxlength="9"  required>
+            </div>
+
+            <div class="form-group">
+                <label for="v_name">Visitor Name:</label>
+                <input type="text" name="v_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="v_surname">Visitor Surname:</label>
+                <input type="text" name="v_surname" required>
+            </div>
+
+            <div class="form-group">
+                <label for="v_phone_no">Visitor Phone No:</label>
+                <input type="text" name="v_phone_no" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="v_city">Visitor City:</label>
+                <input type="text" name="v_city" required>
+            </div>
+
+            <div class="form-group">
+                <label for="v_zip">Visitor ZIP Code:</label>
+                <input type="text" name="v_zip" required>
+            </div>
+
+            <div class="form-group">
+                <label for="">Visit Date:</label>
+                <input type="date" name="v_date" required>
+            </div>
+
+            <input type="submit" value="Add Visitor">
+        </form>
+    </div>
+    
+    
+</body>
+</html>

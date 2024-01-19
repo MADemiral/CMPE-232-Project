@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script src="../static/js/menu.js"></script>
+{% if show_alert %}
+<script>
+    showAlert("{{ message }}");
+</script>
+{% endif %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Panel</title>
+    <link rel="stylesheet" href="../static/css/visitor.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Control Panel</h1>
+        <div class="buttons">
+            <button onclick="redirectTo('/visitors_management')">Visitors</button>
+            <button onclick="redirectTo('/prisoners_management')">Prisoners</button>
+        </div>
+    </div>
+</body>
+</html>

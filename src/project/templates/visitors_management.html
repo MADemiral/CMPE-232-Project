@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../static/js/manage_form.js"></script>
+    {% if show_alert %}
+    <script>
+        showAlert("{{ message }}");
+    </script>
+    {% endif %}
+    
+    <link rel="stylesheet" href="../static/css/visitor_management.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Manage Visitors</h1>
+        
+        <!-- Display Prisoner Table -->
+        <table class="prisoner-table">
+            <!-- Table headers -->
+            <tr>
+                <th>Visitor SSN</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Phone Number</th>
+                <th>Zip</th>
+                <th>City</th>
+            </tr>
+            
+            {% for visitor in visitor_data %}
+                <tr>
+                    <td>{{ visitor.v_ssn }}</td>
+                    <td>{{ visitor.v_name }}</td>
+                    <td>{{ visitor.v_surname }}</td>
+                    <td>{{  visitor.v_phone_no }}</td>
+                    <td>{{ visitor.v_zip }}</td>
+                    <td>{{ visitor.v_city }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+    <div class="form_div">
+        <h2>Select Action:</h2>
+        <form class="visitor-form" action="/manage_visitors" method="post">
+            <div class="custom-select">
+                <label for="action">Choose an operation:</label>
+                <select id="action" name="action" required>
+                    <option value="" disabled selected>Choose</option>
+                    <option value="insert">Insert</option>
+                    <option value="update">Update</option>
+                    <option value="delete">Delete</option>
+                </select>
+            </div>
+    
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    
+    
+
+
+</body>
+</html>

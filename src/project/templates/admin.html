@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script src="../static/js/menu.js"></script>
+{% if show_alert %}
+<script>
+    showAlert("{{ message }}");
+</script>
+{% endif %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="../static/css/admin.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form action="/login" method="post">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="buttons">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

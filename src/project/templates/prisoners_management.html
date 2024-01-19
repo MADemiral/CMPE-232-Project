@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../static/js/manage_form_prisoner.js"></script>
+    {% if show_alert %}
+    <script>
+        showAlert("{{ message }}");
+    </script>
+    {% endif %}
+    
+    <link rel="stylesheet" href="../static/css/prisoner_management.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Manage Prisoners</h1>
+        
+        <!-- Display Prisoner Table -->
+        <table class="prisoner-table">
+            <!-- Table headers -->
+            <tr>
+                <th>Prisoner SSN</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Sentence ID</th>
+                <th>Sentence Name</th>
+                <th>Block ID</th>
+                <th>Block Name</th>
+                <th>Stay Start Date</th>
+                <th>Stay End Date</th>
+            </tr>
+            
+            {% for prisoner in prisoner_data %}
+                <tr>
+                    <td>{{ prisoner.prisoner_ssn }}</td>
+                    <td>{{ prisoner.prisoner_name }}</td>
+                    <td>{{ prisoner.prisoner_surname}}</td>
+                    <td>{{  prisoner.sentence_id }}</td>
+                    <td>{{ prisoner.sentence_name }}</td>
+                    <td>{{ prisoner.block_id }}</td>
+                    <td>{{ prisoner.block_name }}</td>
+                    <td>{{ prisoner.stay_start_date }}</td>
+                    <td>{{ prisoner.stay_end_date }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+    <div class="form_div">
+        <h2>Manage Prisoners</h2>
+        <form class="prisoner-form" action="/manage_prisoners" method="post">
+            <div class="custom-select">
+            <label for="action">Select Action:</label>
+            <select id="action" name="action" required>
+
+                <option value="">Choose</option>
+                <option value="insert">Insert</option>
+                <option value="update">Update</option>
+                <option value="delete">Delete</option>
+            </select>
+       
+            
+            <input type="submit" value="Submit">
+           
+        </form>
+    </div>
+
+
+</body>
+</html>

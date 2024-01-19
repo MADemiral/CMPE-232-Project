@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/menu.css">
+    <title>DBAM Prison Menu</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose User Type</h1>
+        <div class="buttons">
+            <button id="visitorBtn" onclick="redirectTo('/visitor')">Visitors</button>
+            <button id="adminBtn" onclick="redirectTo('/admin')">Admin</button>
+        </div>
+    </div>
+    <script>
+        function redirectTo(route) {
+            window.location.href = route;
+        }
+    </script>
+    <script src="../static/js/menu.js"></script>
+</body>
+</html>
